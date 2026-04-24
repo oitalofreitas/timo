@@ -22,7 +22,7 @@ export async function initializeWhatsApp(sessionId: string, onQR?: (qr: string) 
       auth: state,
       browser: ["Timo", "Safari", "1.0.0"],
       syncFullHistory: false,
-      connectTimeoutMs: 60000,
+      connectTimeoutMs: 120000,
       keepAliveIntervalMs: 30000,
     });
 
