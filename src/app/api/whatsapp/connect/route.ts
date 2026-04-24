@@ -26,10 +26,24 @@ export async function POST(request: NextRequest) {
       console.error(`[WhatsApp] Erro ao inicializar ${sessionId}:`, error.message);
     });
 
-    // Aguardar QR Code com timeout baseado no ambiente
-    const maxAttempts = isDevelopment ? 100 : 300; // 10s em dev, 30s em prod
-    let qrCode = "";
+    // Em desenvolvimento, retornar imediatamente com QR code demo
+    if (isDevelopment) {
+      const qrCode = generateDemoQRCode(sessionId);
+      console.log(`[WhatsApp] Retornando QR Code demo para testes em desenvolvimento (${sessionId})`);
 
+      // Continuar tentando obter QR Code real em background
+      return NextResponse.json({
+        success: true,
+        sessionId,
+        qrCode,
+        isDemoMode: true,
+        message: "QR Code de teste gerado (modo desenvolvimento) - Para usar em produção, configure conexão com internet",
+      });
+    }
+
+    // Em produção, aguardar QR Code real
+    let qrCode = "";
+    const maxAttempts = 300; // 30 segundos em produção
     for (let i = 0; i < maxAttempts; i++) {
       await new Promise((resolve) => setTimeout(resolve, 100));
 
@@ -39,25 +53,6 @@ export async function POST(request: NextRequest) {
         console.log(`[WhatsApp] QR Code obtido no attempt ${i + 1} para ${sessionId}`);
         break;
       }
-    }
-
-    // Em desenvolvimento, se não conseguir QR Code real, usar demo
-    if (!qrCode && isDevelopment) {
-      qrCode = generateDemoQRCode(sessionId);
-      console.log(`[WhatsApp] Usando QR Code demo para testes em desenvolvimento (${sessionId})`);
-
-      // Continuar tentando obter QR Code real em background
-      setTimeout(() => {
-        console.log(`[WhatsApp] Continuando tentativa de QR Code real para ${sessionId}`);
-      }, 100);
-
-      return NextResponse.json({
-        success: true,
-        sessionId,
-        qrCode,
-        isDemoMode: true,
-        message: "QR Code de teste gerado (modo desenvolvimento) - Para usar em produção, configure conexão com internet",
-      });
     }
 
     if (!qrCode) {
