@@ -116,7 +116,12 @@ export default function WhatsAppPage() {
         } catch (error) {
           console.error("Erro ao gerar imagem QR:", error);
         }
-        toast.success("Escaneie o QR Code com seu WhatsApp");
+
+        if (data.isDemoMode) {
+          toast.warning("Modo teste: Este QR code é apenas para testes locais");
+        } else {
+          toast.success("Escaneie o QR Code com seu WhatsApp");
+        }
       } else if (data.error) {
         toast.error(data.error);
         if (data.hint) {
