@@ -29,3 +29,6 @@ yarn-error.log*
 # Cache
 .turbo/
 .swc/
+
+# WhatsApp sessions
+.whatsapp-sessions/
