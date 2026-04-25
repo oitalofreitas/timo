@@ -39,7 +39,6 @@ const plans = [
 
 export default function ServicesPage() {
   const [openService, setOpenService] = useState(false);
-  const [openPlan, setOpenPlan] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -155,7 +154,7 @@ export default function ServicesPage() {
               </Card>
             ))}
             <button
-              onClick={() => setOpenPlan(true)}
+              
               className="min-h-[200px] rounded-lg border border-dashed border-border flex flex-col items-center justify-center gap-2 text-muted-foreground hover:border-primary/50 hover:text-primary transition-colors"
             >
               <Plus className="h-6 w-6" />

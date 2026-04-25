@@ -12,7 +12,20 @@
       "mcp__plugin_vercel-plugin_vercel__list_teams",
       "mcp__plugin_vercel-plugin_vercel__list_projects",
       "Bash(npm i *)",
-      "Bash(npm remove *)"
+      "Bash(npm remove *)",
+      "Bash(npm ls *)",
+      "Bash(npx eslint *)",
+      "Bash(sed -i '' '42d' \"src/app/\\(dashboard\\)/services/page.tsx\")",
+      "Bash(sed -n '39,45p' \"src/app/\\(dashboard\\)/services/page.tsx\")",
+      "Bash(grep -v \"^\\\\.\\\\.$\")",
+      "Bash(grep -v \"^\\\\.$\")",
+      "Bash(npm run *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/Users/oitalofreitasicloud.com/Code/Sistemas/Timo/.claude"
     ]
   }
 }
