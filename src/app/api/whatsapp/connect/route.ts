@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BAILEYS_SERVER = process.env.BAILEYS_SERVER_URL || "http://localhost:3001";
+let BAILEYS_SERVER = process.env.BAILEYS_SERVER_URL || "http://localhost:3001";
+if (!BAILEYS_SERVER.startsWith("http")) {
+  BAILEYS_SERVER = `https://${BAILEYS_SERVER}`;
+}
 
 export async function POST(request: NextRequest) {
   try {

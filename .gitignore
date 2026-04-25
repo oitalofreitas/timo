@@ -32,3 +32,5 @@ yarn-error.log*
 
 # WhatsApp sessions
 .whatsapp-sessions/
+.vercel
+.env*.local
