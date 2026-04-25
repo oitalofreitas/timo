@@ -1,1 +1,1 @@
-web: npx ts-node baileys-server.ts
+web: node baileys-server.js
