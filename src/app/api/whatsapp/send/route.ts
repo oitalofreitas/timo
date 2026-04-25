@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectWhatsApp } from "@/lib/whatsapp-client";
+import { sendWhatsAppMessage } from "@/lib/whatsapp-client";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
@@ -13,18 +13,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { connectionId, workspaceId } = await request.json();
+    const { connectionId, phoneNumber, message } = await request.json();
 
-    if (!connectionId || !workspaceId) {
+    if (!connectionId || !phoneNumber || !message) {
       return NextResponse.json(
-        { error: "connectionId and workspaceId are required" },
+        {
+          error:
+            "connectionId, phoneNumber, and message are required",
+        },
         { status: 400 }
       );
     }
 
     const connection = await prisma.whatsAppConnection.findUnique({
       where: { id: connectionId },
-      include: { workspace: true },
     });
 
     if (!connection) {
@@ -34,22 +36,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (connection.workspaceId !== workspaceId) {
-      return NextResponse.json(
-        { error: "Invalid workspace" },
-        { status: 403 }
-      );
-    }
+    const result = await sendWhatsAppMessage(
+      connectionId,
+      phoneNumber,
+      message
+    );
 
-    const result = await connectWhatsApp(connectionId, workspaceId);
     return NextResponse.json(result);
   } catch (error) {
-    console.error("[API] Connect error:", error);
-    const message = error instanceof Error ? error.message : String(error);
+    console.error("[API] Send message error:", error);
+    const message =
+      error instanceof Error ? error.message : String(error);
 
     return NextResponse.json(
       {
-        error: "Failed to connect WhatsApp",
+        error: "Failed to send WhatsApp message",
         message,
       },
       { status: 500 }

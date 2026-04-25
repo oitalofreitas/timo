@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s 'https://timo-ten.vercel.app/api/whatsapp/status?sessionId=test')",
+      "Bash(curl -s https://timo-ten.vercel.app/api/whatsapp/connect -X POST -H 'Content-Type: application/json' -d '{\"sessionId\":\"manual-test\"}' -w '\\\\nStatus: %{http_code}\\\\n' --max-time 50)",
+      "Bash(curl -s -H 'Authorization: Bearer 35bd730a-95fb-4178-aaf9-4d81e3dee8d2' https://api.railway.app/graphql -X POST -H 'Content-Type: application/json' -d '{ *)",
+      "Bash(curl -s -H 'Authorization: Bearer 35bd730a-95fb-4178-aaf9-4d81e3dee8d2' https://api.railway.app/v1/projects/35bd730a-95fb-4178-aaf9-4d81e3dee8d2)",
+      "Bash(curl -s https://api.railway.app/tokens/verify -H 'Authorization: Bearer 35bd730a-95fb-4178-aaf9-4d81e3dee8d2' -H 'Content-Type: application/json')",
+      "Bash(sudo npm *)"
+    ]
+  }
+}

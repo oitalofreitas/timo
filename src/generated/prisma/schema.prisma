@@ -529,7 +529,11 @@ model WhatsAppConnection {
   phoneNumber String?
   name        String?
   status      WhatsAppStatus @default(DISCONNECTED)
+  qrCode      String?
+  authData    Bytes?
   sessionData Json?
+  lastError   String?
+  lastSync    DateTime?
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
 

@@ -31389,6 +31389,10 @@ export namespace Prisma {
     phoneNumber: string | null
     name: string | null
     status: $Enums.WhatsAppStatus | null
+    qrCode: string | null
+    authData: Bytes | null
+    lastError: string | null
+    lastSync: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -31399,6 +31403,10 @@ export namespace Prisma {
     phoneNumber: string | null
     name: string | null
     status: $Enums.WhatsAppStatus | null
+    qrCode: string | null
+    authData: Bytes | null
+    lastError: string | null
+    lastSync: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -31409,7 +31417,11 @@ export namespace Prisma {
     phoneNumber: number
     name: number
     status: number
+    qrCode: number
+    authData: number
     sessionData: number
+    lastError: number
+    lastSync: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -31422,6 +31434,10 @@ export namespace Prisma {
     phoneNumber?: true
     name?: true
     status?: true
+    qrCode?: true
+    authData?: true
+    lastError?: true
+    lastSync?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -31432,6 +31448,10 @@ export namespace Prisma {
     phoneNumber?: true
     name?: true
     status?: true
+    qrCode?: true
+    authData?: true
+    lastError?: true
+    lastSync?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -31442,7 +31462,11 @@ export namespace Prisma {
     phoneNumber?: true
     name?: true
     status?: true
+    qrCode?: true
+    authData?: true
     sessionData?: true
+    lastError?: true
+    lastSync?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -31526,7 +31550,11 @@ export namespace Prisma {
     phoneNumber: string | null
     name: string | null
     status: $Enums.WhatsAppStatus
+    qrCode: string | null
+    authData: Bytes | null
     sessionData: JsonValue | null
+    lastError: string | null
+    lastSync: Date | null
     createdAt: Date
     updatedAt: Date
     _count: WhatsAppConnectionCountAggregateOutputType | null
@@ -31554,7 +31582,11 @@ export namespace Prisma {
     phoneNumber?: boolean
     name?: boolean
     status?: boolean
+    qrCode?: boolean
+    authData?: boolean
     sessionData?: boolean
+    lastError?: boolean
+    lastSync?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
@@ -31566,7 +31598,11 @@ export namespace Prisma {
     phoneNumber?: boolean
     name?: boolean
     status?: boolean
+    qrCode?: boolean
+    authData?: boolean
     sessionData?: boolean
+    lastError?: boolean
+    lastSync?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
@@ -31578,7 +31614,11 @@ export namespace Prisma {
     phoneNumber?: boolean
     name?: boolean
     status?: boolean
+    qrCode?: boolean
+    authData?: boolean
     sessionData?: boolean
+    lastError?: boolean
+    lastSync?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
@@ -31590,12 +31630,16 @@ export namespace Prisma {
     phoneNumber?: boolean
     name?: boolean
     status?: boolean
+    qrCode?: boolean
+    authData?: boolean
     sessionData?: boolean
+    lastError?: boolean
+    lastSync?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type WhatsAppConnectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "workspaceId" | "phoneNumber" | "name" | "status" | "sessionData" | "createdAt" | "updatedAt", ExtArgs["result"]["whatsAppConnection"]>
+  export type WhatsAppConnectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "workspaceId" | "phoneNumber" | "name" | "status" | "qrCode" | "authData" | "sessionData" | "lastError" | "lastSync" | "createdAt" | "updatedAt", ExtArgs["result"]["whatsAppConnection"]>
   export type WhatsAppConnectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
   }
@@ -31617,7 +31661,11 @@ export namespace Prisma {
       phoneNumber: string | null
       name: string | null
       status: $Enums.WhatsAppStatus
+      qrCode: string | null
+      authData: Prisma.Bytes | null
       sessionData: Prisma.JsonValue | null
+      lastError: string | null
+      lastSync: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["whatsAppConnection"]>
@@ -32049,7 +32097,11 @@ export namespace Prisma {
     readonly phoneNumber: FieldRef<"WhatsAppConnection", 'String'>
     readonly name: FieldRef<"WhatsAppConnection", 'String'>
     readonly status: FieldRef<"WhatsAppConnection", 'WhatsAppStatus'>
+    readonly qrCode: FieldRef<"WhatsAppConnection", 'String'>
+    readonly authData: FieldRef<"WhatsAppConnection", 'Bytes'>
     readonly sessionData: FieldRef<"WhatsAppConnection", 'Json'>
+    readonly lastError: FieldRef<"WhatsAppConnection", 'String'>
+    readonly lastSync: FieldRef<"WhatsAppConnection", 'DateTime'>
     readonly createdAt: FieldRef<"WhatsAppConnection", 'DateTime'>
     readonly updatedAt: FieldRef<"WhatsAppConnection", 'DateTime'>
   }
@@ -35049,7 +35101,11 @@ export namespace Prisma {
     phoneNumber: 'phoneNumber',
     name: 'name',
     status: 'status',
+    qrCode: 'qrCode',
+    authData: 'authData',
     sessionData: 'sessionData',
+    lastError: 'lastError',
+    lastSync: 'lastSync',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -35337,6 +35393,20 @@ export namespace Prisma {
    * Reference to a field of type 'WhatsAppStatus[]'
    */
   export type ListEnumWhatsAppStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WhatsAppStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bytes'
+   */
+  export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bytes[]'
+   */
+  export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
     
   /**
    * Deep Input Types
@@ -37376,7 +37446,11 @@ export namespace Prisma {
     phoneNumber?: StringNullableFilter<"WhatsAppConnection"> | string | null
     name?: StringNullableFilter<"WhatsAppConnection"> | string | null
     status?: EnumWhatsAppStatusFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
+    qrCode?: StringNullableFilter<"WhatsAppConnection"> | string | null
+    authData?: BytesNullableFilter<"WhatsAppConnection"> | Bytes | null
     sessionData?: JsonNullableFilter<"WhatsAppConnection">
+    lastError?: StringNullableFilter<"WhatsAppConnection"> | string | null
+    lastSync?: DateTimeNullableFilter<"WhatsAppConnection"> | Date | string | null
     createdAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
     updatedAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
     workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
@@ -37388,7 +37462,11 @@ export namespace Prisma {
     phoneNumber?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
     status?: SortOrder
+    qrCode?: SortOrderInput | SortOrder
+    authData?: SortOrderInput | SortOrder
     sessionData?: SortOrderInput | SortOrder
+    lastError?: SortOrderInput | SortOrder
+    lastSync?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     workspace?: WorkspaceOrderByWithRelationInput
@@ -37403,7 +37481,11 @@ export namespace Prisma {
     phoneNumber?: StringNullableFilter<"WhatsAppConnection"> | string | null
     name?: StringNullableFilter<"WhatsAppConnection"> | string | null
     status?: EnumWhatsAppStatusFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
+    qrCode?: StringNullableFilter<"WhatsAppConnection"> | string | null
+    authData?: BytesNullableFilter<"WhatsAppConnection"> | Bytes | null
     sessionData?: JsonNullableFilter<"WhatsAppConnection">
+    lastError?: StringNullableFilter<"WhatsAppConnection"> | string | null
+    lastSync?: DateTimeNullableFilter<"WhatsAppConnection"> | Date | string | null
     createdAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
     updatedAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
     workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
@@ -37415,7 +37497,11 @@ export namespace Prisma {
     phoneNumber?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
     status?: SortOrder
+    qrCode?: SortOrderInput | SortOrder
+    authData?: SortOrderInput | SortOrder
     sessionData?: SortOrderInput | SortOrder
+    lastError?: SortOrderInput | SortOrder
+    lastSync?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: WhatsAppConnectionCountOrderByAggregateInput
@@ -37432,7 +37518,11 @@ export namespace Prisma {
     phoneNumber?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
     name?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
     status?: EnumWhatsAppStatusWithAggregatesFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
+    qrCode?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
+    authData?: BytesNullableWithAggregatesFilter<"WhatsAppConnection"> | Bytes | null
     sessionData?: JsonNullableWithAggregatesFilter<"WhatsAppConnection">
+    lastError?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
+    lastSync?: DateTimeNullableWithAggregatesFilter<"WhatsAppConnection"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"WhatsAppConnection"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"WhatsAppConnection"> | Date | string
   }
@@ -39819,7 +39909,11 @@ export namespace Prisma {
     phoneNumber?: string | null
     name?: string | null
     status?: $Enums.WhatsAppStatus
+    qrCode?: string | null
+    authData?: Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: string | null
+    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     workspace: WorkspaceCreateNestedOneWithoutWhatsappsInput
@@ -39831,7 +39925,11 @@ export namespace Prisma {
     phoneNumber?: string | null
     name?: string | null
     status?: $Enums.WhatsAppStatus
+    qrCode?: string | null
+    authData?: Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: string | null
+    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -39841,7 +39939,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     workspace?: WorkspaceUpdateOneRequiredWithoutWhatsappsNestedInput
@@ -39853,7 +39955,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -39864,7 +39970,11 @@ export namespace Prisma {
     phoneNumber?: string | null
     name?: string | null
     status?: $Enums.WhatsAppStatus
+    qrCode?: string | null
+    authData?: Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: string | null
+    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -39874,7 +39984,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -39885,7 +39999,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -41876,13 +41994,24 @@ export namespace Prisma {
     not?: NestedEnumWhatsAppStatusFilter<$PrismaModel> | $Enums.WhatsAppStatus
   }
 
+  export type BytesNullableFilter<$PrismaModel = never> = {
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Bytes | null
+  }
+
   export type WhatsAppConnectionCountOrderByAggregateInput = {
     id?: SortOrder
     workspaceId?: SortOrder
     phoneNumber?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    qrCode?: SortOrder
+    authData?: SortOrder
     sessionData?: SortOrder
+    lastError?: SortOrder
+    lastSync?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -41893,6 +42022,10 @@ export namespace Prisma {
     phoneNumber?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    qrCode?: SortOrder
+    authData?: SortOrder
+    lastError?: SortOrder
+    lastSync?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -41903,6 +42036,10 @@ export namespace Prisma {
     phoneNumber?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    qrCode?: SortOrder
+    authData?: SortOrder
+    lastError?: SortOrder
+    lastSync?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -41915,6 +42052,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
     _max?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
+  }
+
+  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Bytes | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type IntegrationWorkspaceIdTypeCompoundUniqueInput = {
@@ -43862,6 +44009,10 @@ export namespace Prisma {
     set?: $Enums.WhatsAppStatus
   }
 
+  export type NullableBytesFieldUpdateOperationsInput = {
+    set?: Bytes | null
+  }
+
   export type WorkspaceUpdateOneRequiredWithoutWhatsappsNestedInput = {
     create?: XOR<WorkspaceCreateWithoutWhatsappsInput, WorkspaceUncheckedCreateWithoutWhatsappsInput>
     connectOrCreate?: WorkspaceCreateOrConnectWithoutWhatsappsInput
@@ -44329,6 +44480,13 @@ export namespace Prisma {
     not?: NestedEnumWhatsAppStatusFilter<$PrismaModel> | $Enums.WhatsAppStatus
   }
 
+  export type NestedBytesNullableFilter<$PrismaModel = never> = {
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Bytes | null
+  }
+
   export type NestedEnumWhatsAppStatusWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.WhatsAppStatus | EnumWhatsAppStatusFieldRefInput<$PrismaModel>
     in?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
@@ -44337,6 +44495,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
     _max?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
+  }
+
+  export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Bytes | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -45204,7 +45372,11 @@ export namespace Prisma {
     phoneNumber?: string | null
     name?: string | null
     status?: $Enums.WhatsAppStatus
+    qrCode?: string | null
+    authData?: Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: string | null
+    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -45214,7 +45386,11 @@ export namespace Prisma {
     phoneNumber?: string | null
     name?: string | null
     status?: $Enums.WhatsAppStatus
+    qrCode?: string | null
+    authData?: Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: string | null
+    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -45736,7 +45912,11 @@ export namespace Prisma {
     phoneNumber?: StringNullableFilter<"WhatsAppConnection"> | string | null
     name?: StringNullableFilter<"WhatsAppConnection"> | string | null
     status?: EnumWhatsAppStatusFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
+    qrCode?: StringNullableFilter<"WhatsAppConnection"> | string | null
+    authData?: BytesNullableFilter<"WhatsAppConnection"> | Bytes | null
     sessionData?: JsonNullableFilter<"WhatsAppConnection">
+    lastError?: StringNullableFilter<"WhatsAppConnection"> | string | null
+    lastSync?: DateTimeNullableFilter<"WhatsAppConnection"> | Date | string | null
     createdAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
     updatedAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
   }
@@ -49861,7 +50041,11 @@ export namespace Prisma {
     phoneNumber?: string | null
     name?: string | null
     status?: $Enums.WhatsAppStatus
+    qrCode?: string | null
+    authData?: Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: string | null
+    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -50326,7 +50510,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -50336,7 +50524,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -50346,7 +50538,11 @@ export namespace Prisma {
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
+    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
+    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     sessionData?: NullableJsonNullValueInput | InputJsonValue
+    lastError?: NullableStringFieldUpdateOperationsInput | string | null
+    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

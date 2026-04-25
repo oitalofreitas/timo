@@ -1,29 +1,51 @@
 import { NextRequest, NextResponse } from "next/server";
-
-let BAILEYS_SERVER = process.env.BAILEYS_SERVER_URL || "http://localhost:3001";
-if (!BAILEYS_SERVER.startsWith("http")) {
-  BAILEYS_SERVER = `https://${BAILEYS_SERVER}`;
-}
+import { getWhatsAppStatus } from "@/lib/whatsapp-client";
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 
 export async function GET(request: NextRequest) {
   try {
-    const url = new URL(request.url);
-    const sessionId = url.searchParams.get("sessionId");
-
-    if (!sessionId) {
-      return NextResponse.json({ error: "sessionId is required" }, { status: 400 });
+    const session = await auth();
+    if (!session?.user?.email) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
     }
 
-    const response = await fetch(`${BAILEYS_SERVER}/api/whatsapp/status?sessionId=${sessionId}`);
-    const data = await response.json();
+    const { searchParams } = new URL(request.url);
+    const connectionId = searchParams.get("connectionId");
 
-    if (!response.ok) {
-      return NextResponse.json(data, { status: response.status });
+    if (!connectionId) {
+      return NextResponse.json(
+        { error: "connectionId is required" },
+        { status: 400 }
+      );
     }
 
-    return NextResponse.json(data);
+    const connection = await prisma.whatsAppConnection.findUnique({
+      where: { id: connectionId },
+    });
+
+    if (!connection) {
+      return NextResponse.json(
+        { error: "Connection not found" },
+        { status: 404 }
+      );
+    }
+
+    const status = await getWhatsAppStatus(connectionId);
+    return NextResponse.json(status);
   } catch (error) {
-    console.error("[Vercel] Erro:", error);
-    return NextResponse.json({ error: String(error) }, { status: 503 });
+    console.error("[API] Status error:", error);
+    const message = error instanceof Error ? error.message : String(error);
+
+    return NextResponse.json(
+      {
+        error: "Failed to get WhatsApp status",
+        message,
+      },
+      { status: 500 }
+    );
   }
 }

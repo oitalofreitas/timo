@@ -432,7 +432,11 @@ exports.Prisma.WhatsAppConnectionScalarFieldEnum = {
   phoneNumber: 'phoneNumber',
   name: 'name',
   status: 'status',
+  qrCode: 'qrCode',
+  authData: 'authData',
   sessionData: 'sessionData',
+  lastError: 'lastError',
+  lastSync: 'lastSync',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
