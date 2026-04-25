@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "tsc baileys-server.ts --outDir . --module commonjs --target es2020 --esModuleInterop --skipLibCheck && next build",
     "start": "next start",
+    "start:baileys": "node baileys-server.js",
     "lint": "eslint"
   },
   "dependencies": {
