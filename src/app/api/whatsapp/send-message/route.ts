@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendMessage } from "@/lib/whatsapp";
+
+const BAILEYS_SERVER = process.env.BAILEYS_SERVER_URL || "http://localhost:3001";
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,19 +13,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await sendMessage(sessionId, phoneNumber, message);
-
-    return NextResponse.json({
-      success: true,
-      message: "Message sent",
-      sessionId,
-      phoneNumber,
+    const response = await fetch(`${BAILEYS_SERVER}/api/whatsapp/send-message`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sessionId, phoneNumber, message }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return NextResponse.json(data, { status: response.status });
+    }
+
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("Erro ao enviar mensagem:", error);
-    return NextResponse.json(
-      { error: "Failed to send message", details: String(error) },
-      { status: 500 }
-    );
+    console.error("[Vercel] Erro:", error);
+    return NextResponse.json({ error: String(error) }, { status: 503 });
   }
 }

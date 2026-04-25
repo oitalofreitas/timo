@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { disconnectSession } from "@/lib/whatsapp";
+
+const BAILEYS_SERVER = process.env.BAILEYS_SERVER_URL || "http://localhost:3001";
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,18 +10,21 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "sessionId is required" }, { status: 400 });
     }
 
-    await disconnectSession(sessionId);
-
-    return NextResponse.json({
-      success: true,
-      message: "Session disconnected",
-      sessionId,
+    const response = await fetch(`${BAILEYS_SERVER}/api/whatsapp/disconnect`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sessionId }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return NextResponse.json(data, { status: response.status });
+    }
+
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("Erro ao desconectar:", error);
-    return NextResponse.json(
-      { error: "Failed to disconnect", details: String(error) },
-      { status: 500 }
-    );
+    console.error("[Vercel] Erro:", error);
+    return NextResponse.json({ error: String(error) }, { status: 503 });
   }
 }

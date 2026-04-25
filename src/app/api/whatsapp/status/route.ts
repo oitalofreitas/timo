@@ -1,32 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSession } from "@/lib/whatsapp";
+
+const BAILEYS_SERVER = process.env.BAILEYS_SERVER_URL || "http://localhost:3001";
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const sessionId = searchParams.get("sessionId");
+    const url = new URL(request.url);
+    const sessionId = url.searchParams.get("sessionId");
 
     if (!sessionId) {
       return NextResponse.json({ error: "sessionId is required" }, { status: 400 });
     }
 
-    const session = getSession(sessionId);
+    const response = await fetch(`${BAILEYS_SERVER}/api/whatsapp/status?sessionId=${sessionId}`);
+    const data = await response.json();
 
-    if (!session) {
-      return NextResponse.json({ error: "Session not found" }, { status: 404 });
+    if (!response.ok) {
+      return NextResponse.json(data, { status: response.status });
     }
 
-    return NextResponse.json({
-      sessionId: session.id,
-      status: session.status,
-      phoneNumber: session.phoneNumber,
-      qrCode: session.qrCode,
-    });
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("Erro ao obter status:", error);
-    return NextResponse.json(
-      { error: "Failed to get status", details: String(error) },
-      { status: 500 }
-    );
+    console.error("[Vercel] Erro:", error);
+    return NextResponse.json({ error: String(error) }, { status: 503 });
   }
 }
