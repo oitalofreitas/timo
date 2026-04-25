@@ -426,21 +426,6 @@ exports.Prisma.TestimonialScalarFieldEnum = {
   order: 'order'
 };
 
-exports.Prisma.WhatsAppConnectionScalarFieldEnum = {
-  id: 'id',
-  workspaceId: 'workspaceId',
-  phoneNumber: 'phoneNumber',
-  name: 'name',
-  status: 'status',
-  qrCode: 'qrCode',
-  authData: 'authData',
-  sessionData: 'sessionData',
-  lastError: 'lastError',
-  lastSync: 'lastSync',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.IntegrationScalarFieldEnum = {
   id: 'id',
   workspaceId: 'workspaceId',
@@ -545,13 +530,6 @@ exports.BriefingStatus = exports.$Enums.BriefingStatus = {
   ANSWERED: 'ANSWERED'
 };
 
-exports.WhatsAppStatus = exports.$Enums.WhatsAppStatus = {
-  DISCONNECTED: 'DISCONNECTED',
-  CONNECTING: 'CONNECTING',
-  CONNECTED: 'CONNECTED',
-  ERROR: 'ERROR'
-};
-
 exports.Prisma.ModelName = {
   User: 'User',
   Account: 'Account',
@@ -576,7 +554,6 @@ exports.Prisma.ModelName = {
   Portfolio: 'Portfolio',
   PortfolioProject: 'PortfolioProject',
   Testimonial: 'Testimonial',
-  WhatsAppConnection: 'WhatsAppConnection',
   Integration: 'Integration',
   Webhook: 'Webhook'
 };

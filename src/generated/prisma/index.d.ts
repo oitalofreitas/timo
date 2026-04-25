@@ -129,11 +129,6 @@ export type PortfolioProject = $Result.DefaultSelection<Prisma.$PortfolioProject
  */
 export type Testimonial = $Result.DefaultSelection<Prisma.$TestimonialPayload>
 /**
- * Model WhatsAppConnection
- * 
- */
-export type WhatsAppConnection = $Result.DefaultSelection<Prisma.$WhatsAppConnectionPayload>
-/**
  * Model Integration
  * 
  */
@@ -225,16 +220,6 @@ export const BriefingStatus: {
 
 export type BriefingStatus = (typeof BriefingStatus)[keyof typeof BriefingStatus]
 
-
-export const WhatsAppStatus: {
-  DISCONNECTED: 'DISCONNECTED',
-  CONNECTING: 'CONNECTING',
-  CONNECTED: 'CONNECTED',
-  ERROR: 'ERROR'
-};
-
-export type WhatsAppStatus = (typeof WhatsAppStatus)[keyof typeof WhatsAppStatus]
-
 }
 
 export type UserRole = $Enums.UserRole
@@ -268,10 +253,6 @@ export const QuoteStatus: typeof $Enums.QuoteStatus
 export type BriefingStatus = $Enums.BriefingStatus
 
 export const BriefingStatus: typeof $Enums.BriefingStatus
-
-export type WhatsAppStatus = $Enums.WhatsAppStatus
-
-export const WhatsAppStatus: typeof $Enums.WhatsAppStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -623,16 +604,6 @@ export class PrismaClient<
     * ```
     */
   get testimonial(): Prisma.TestimonialDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.whatsAppConnection`: Exposes CRUD operations for the **WhatsAppConnection** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more WhatsAppConnections
-    * const whatsAppConnections = await prisma.whatsAppConnection.findMany()
-    * ```
-    */
-  get whatsAppConnection(): Prisma.WhatsAppConnectionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.integration`: Exposes CRUD operations for the **Integration** model.
@@ -1110,7 +1081,6 @@ export namespace Prisma {
     Portfolio: 'Portfolio',
     PortfolioProject: 'PortfolioProject',
     Testimonial: 'Testimonial',
-    WhatsAppConnection: 'WhatsAppConnection',
     Integration: 'Integration',
     Webhook: 'Webhook'
   };
@@ -1128,7 +1098,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "verificationToken" | "workspace" | "teamMember" | "client" | "pipeline" | "pipelineStage" | "lead" | "project" | "taskStage" | "task" | "transaction" | "service" | "product" | "plan" | "quote" | "quoteItem" | "briefing" | "portfolio" | "portfolioProject" | "testimonial" | "whatsAppConnection" | "integration" | "webhook"
+      modelProps: "user" | "account" | "session" | "verificationToken" | "workspace" | "teamMember" | "client" | "pipeline" | "pipelineStage" | "lead" | "project" | "taskStage" | "task" | "transaction" | "service" | "product" | "plan" | "quote" | "quoteItem" | "briefing" | "portfolio" | "portfolioProject" | "testimonial" | "integration" | "webhook"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2834,80 +2804,6 @@ export namespace Prisma {
           }
         }
       }
-      WhatsAppConnection: {
-        payload: Prisma.$WhatsAppConnectionPayload<ExtArgs>
-        fields: Prisma.WhatsAppConnectionFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.WhatsAppConnectionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.WhatsAppConnectionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>
-          }
-          findFirst: {
-            args: Prisma.WhatsAppConnectionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.WhatsAppConnectionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>
-          }
-          findMany: {
-            args: Prisma.WhatsAppConnectionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>[]
-          }
-          create: {
-            args: Prisma.WhatsAppConnectionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>
-          }
-          createMany: {
-            args: Prisma.WhatsAppConnectionCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.WhatsAppConnectionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>[]
-          }
-          delete: {
-            args: Prisma.WhatsAppConnectionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>
-          }
-          update: {
-            args: Prisma.WhatsAppConnectionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>
-          }
-          deleteMany: {
-            args: Prisma.WhatsAppConnectionDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.WhatsAppConnectionUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.WhatsAppConnectionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>[]
-          }
-          upsert: {
-            args: Prisma.WhatsAppConnectionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$WhatsAppConnectionPayload>
-          }
-          aggregate: {
-            args: Prisma.WhatsAppConnectionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateWhatsAppConnection>
-          }
-          groupBy: {
-            args: Prisma.WhatsAppConnectionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<WhatsAppConnectionGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.WhatsAppConnectionCountArgs<ExtArgs>
-            result: $Utils.Optional<WhatsAppConnectionCountAggregateOutputType> | number
-          }
-        }
-      }
       Integration: {
         payload: Prisma.$IntegrationPayload<ExtArgs>
         fields: Prisma.IntegrationFieldRefs
@@ -3187,7 +3083,6 @@ export namespace Prisma {
     portfolio?: PortfolioOmit
     portfolioProject?: PortfolioProjectOmit
     testimonial?: TestimonialOmit
-    whatsAppConnection?: WhatsAppConnectionOmit
     integration?: IntegrationOmit
     webhook?: WebhookOmit
   }
@@ -3320,7 +3215,6 @@ export namespace Prisma {
     plans: number
     quotes: number
     briefings: number
-    whatsapps: number
     integrations: number
     webhooks: number
   }
@@ -3336,7 +3230,6 @@ export namespace Prisma {
     plans?: boolean | WorkspaceCountOutputTypeCountPlansArgs
     quotes?: boolean | WorkspaceCountOutputTypeCountQuotesArgs
     briefings?: boolean | WorkspaceCountOutputTypeCountBriefingsArgs
-    whatsapps?: boolean | WorkspaceCountOutputTypeCountWhatsappsArgs
     integrations?: boolean | WorkspaceCountOutputTypeCountIntegrationsArgs
     webhooks?: boolean | WorkspaceCountOutputTypeCountWebhooksArgs
   }
@@ -3420,13 +3313,6 @@ export namespace Prisma {
    */
   export type WorkspaceCountOutputTypeCountBriefingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BriefingWhereInput
-  }
-
-  /**
-   * WorkspaceCountOutputType without action
-   */
-  export type WorkspaceCountOutputTypeCountWhatsappsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: WhatsAppConnectionWhereInput
   }
 
   /**
@@ -8429,7 +8315,6 @@ export namespace Prisma {
     quotes?: boolean | Workspace$quotesArgs<ExtArgs>
     briefings?: boolean | Workspace$briefingsArgs<ExtArgs>
     portfolio?: boolean | Workspace$portfolioArgs<ExtArgs>
-    whatsapps?: boolean | Workspace$whatsappsArgs<ExtArgs>
     integrations?: boolean | Workspace$integrationsArgs<ExtArgs>
     webhooks?: boolean | Workspace$webhooksArgs<ExtArgs>
     _count?: boolean | WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
@@ -8493,7 +8378,6 @@ export namespace Prisma {
     quotes?: boolean | Workspace$quotesArgs<ExtArgs>
     briefings?: boolean | Workspace$briefingsArgs<ExtArgs>
     portfolio?: boolean | Workspace$portfolioArgs<ExtArgs>
-    whatsapps?: boolean | Workspace$whatsappsArgs<ExtArgs>
     integrations?: boolean | Workspace$integrationsArgs<ExtArgs>
     webhooks?: boolean | Workspace$webhooksArgs<ExtArgs>
     _count?: boolean | WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
@@ -8520,7 +8404,6 @@ export namespace Prisma {
       quotes: Prisma.$QuotePayload<ExtArgs>[]
       briefings: Prisma.$BriefingPayload<ExtArgs>[]
       portfolio: Prisma.$PortfolioPayload<ExtArgs> | null
-      whatsapps: Prisma.$WhatsAppConnectionPayload<ExtArgs>[]
       integrations: Prisma.$IntegrationPayload<ExtArgs>[]
       webhooks: Prisma.$WebhookPayload<ExtArgs>[]
     }
@@ -8942,7 +8825,6 @@ export namespace Prisma {
     quotes<T extends Workspace$quotesArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$quotesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     briefings<T extends Workspace$briefingsArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$briefingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BriefingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     portfolio<T extends Workspace$portfolioArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$portfolioArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    whatsapps<T extends Workspace$whatsappsArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$whatsappsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     integrations<T extends Workspace$integrationsArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$integrationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntegrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     webhooks<T extends Workspace$webhooksArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$webhooksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WebhookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -9642,30 +9524,6 @@ export namespace Prisma {
      */
     include?: PortfolioInclude<ExtArgs> | null
     where?: PortfolioWhereInput
-  }
-
-  /**
-   * Workspace.whatsapps
-   */
-  export type Workspace$whatsappsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    where?: WhatsAppConnectionWhereInput
-    orderBy?: WhatsAppConnectionOrderByWithRelationInput | WhatsAppConnectionOrderByWithRelationInput[]
-    cursor?: WhatsAppConnectionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: WhatsAppConnectionScalarFieldEnum | WhatsAppConnectionScalarFieldEnum[]
   }
 
   /**
@@ -31374,1156 +31232,6 @@ export namespace Prisma {
 
 
   /**
-   * Model WhatsAppConnection
-   */
-
-  export type AggregateWhatsAppConnection = {
-    _count: WhatsAppConnectionCountAggregateOutputType | null
-    _min: WhatsAppConnectionMinAggregateOutputType | null
-    _max: WhatsAppConnectionMaxAggregateOutputType | null
-  }
-
-  export type WhatsAppConnectionMinAggregateOutputType = {
-    id: string | null
-    workspaceId: string | null
-    phoneNumber: string | null
-    name: string | null
-    status: $Enums.WhatsAppStatus | null
-    qrCode: string | null
-    authData: Bytes | null
-    lastError: string | null
-    lastSync: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type WhatsAppConnectionMaxAggregateOutputType = {
-    id: string | null
-    workspaceId: string | null
-    phoneNumber: string | null
-    name: string | null
-    status: $Enums.WhatsAppStatus | null
-    qrCode: string | null
-    authData: Bytes | null
-    lastError: string | null
-    lastSync: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type WhatsAppConnectionCountAggregateOutputType = {
-    id: number
-    workspaceId: number
-    phoneNumber: number
-    name: number
-    status: number
-    qrCode: number
-    authData: number
-    sessionData: number
-    lastError: number
-    lastSync: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type WhatsAppConnectionMinAggregateInputType = {
-    id?: true
-    workspaceId?: true
-    phoneNumber?: true
-    name?: true
-    status?: true
-    qrCode?: true
-    authData?: true
-    lastError?: true
-    lastSync?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type WhatsAppConnectionMaxAggregateInputType = {
-    id?: true
-    workspaceId?: true
-    phoneNumber?: true
-    name?: true
-    status?: true
-    qrCode?: true
-    authData?: true
-    lastError?: true
-    lastSync?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type WhatsAppConnectionCountAggregateInputType = {
-    id?: true
-    workspaceId?: true
-    phoneNumber?: true
-    name?: true
-    status?: true
-    qrCode?: true
-    authData?: true
-    sessionData?: true
-    lastError?: true
-    lastSync?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type WhatsAppConnectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which WhatsAppConnection to aggregate.
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of WhatsAppConnections to fetch.
-     */
-    orderBy?: WhatsAppConnectionOrderByWithRelationInput | WhatsAppConnectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: WhatsAppConnectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` WhatsAppConnections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` WhatsAppConnections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned WhatsAppConnections
-    **/
-    _count?: true | WhatsAppConnectionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: WhatsAppConnectionMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: WhatsAppConnectionMaxAggregateInputType
-  }
-
-  export type GetWhatsAppConnectionAggregateType<T extends WhatsAppConnectionAggregateArgs> = {
-        [P in keyof T & keyof AggregateWhatsAppConnection]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateWhatsAppConnection[P]>
-      : GetScalarType<T[P], AggregateWhatsAppConnection[P]>
-  }
-
-
-
-
-  export type WhatsAppConnectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: WhatsAppConnectionWhereInput
-    orderBy?: WhatsAppConnectionOrderByWithAggregationInput | WhatsAppConnectionOrderByWithAggregationInput[]
-    by: WhatsAppConnectionScalarFieldEnum[] | WhatsAppConnectionScalarFieldEnum
-    having?: WhatsAppConnectionScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: WhatsAppConnectionCountAggregateInputType | true
-    _min?: WhatsAppConnectionMinAggregateInputType
-    _max?: WhatsAppConnectionMaxAggregateInputType
-  }
-
-  export type WhatsAppConnectionGroupByOutputType = {
-    id: string
-    workspaceId: string
-    phoneNumber: string | null
-    name: string | null
-    status: $Enums.WhatsAppStatus
-    qrCode: string | null
-    authData: Bytes | null
-    sessionData: JsonValue | null
-    lastError: string | null
-    lastSync: Date | null
-    createdAt: Date
-    updatedAt: Date
-    _count: WhatsAppConnectionCountAggregateOutputType | null
-    _min: WhatsAppConnectionMinAggregateOutputType | null
-    _max: WhatsAppConnectionMaxAggregateOutputType | null
-  }
-
-  type GetWhatsAppConnectionGroupByPayload<T extends WhatsAppConnectionGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<WhatsAppConnectionGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof WhatsAppConnectionGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], WhatsAppConnectionGroupByOutputType[P]>
-            : GetScalarType<T[P], WhatsAppConnectionGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type WhatsAppConnectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    workspaceId?: boolean
-    phoneNumber?: boolean
-    name?: boolean
-    status?: boolean
-    qrCode?: boolean
-    authData?: boolean
-    sessionData?: boolean
-    lastError?: boolean
-    lastSync?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["whatsAppConnection"]>
-
-  export type WhatsAppConnectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    workspaceId?: boolean
-    phoneNumber?: boolean
-    name?: boolean
-    status?: boolean
-    qrCode?: boolean
-    authData?: boolean
-    sessionData?: boolean
-    lastError?: boolean
-    lastSync?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["whatsAppConnection"]>
-
-  export type WhatsAppConnectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    workspaceId?: boolean
-    phoneNumber?: boolean
-    name?: boolean
-    status?: boolean
-    qrCode?: boolean
-    authData?: boolean
-    sessionData?: boolean
-    lastError?: boolean
-    lastSync?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["whatsAppConnection"]>
-
-  export type WhatsAppConnectionSelectScalar = {
-    id?: boolean
-    workspaceId?: boolean
-    phoneNumber?: boolean
-    name?: boolean
-    status?: boolean
-    qrCode?: boolean
-    authData?: boolean
-    sessionData?: boolean
-    lastError?: boolean
-    lastSync?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type WhatsAppConnectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "workspaceId" | "phoneNumber" | "name" | "status" | "qrCode" | "authData" | "sessionData" | "lastError" | "lastSync" | "createdAt" | "updatedAt", ExtArgs["result"]["whatsAppConnection"]>
-  export type WhatsAppConnectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
-  }
-  export type WhatsAppConnectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
-  }
-  export type WhatsAppConnectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
-  }
-
-  export type $WhatsAppConnectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "WhatsAppConnection"
-    objects: {
-      workspace: Prisma.$WorkspacePayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      workspaceId: string
-      phoneNumber: string | null
-      name: string | null
-      status: $Enums.WhatsAppStatus
-      qrCode: string | null
-      authData: Prisma.Bytes | null
-      sessionData: Prisma.JsonValue | null
-      lastError: string | null
-      lastSync: Date | null
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["whatsAppConnection"]>
-    composites: {}
-  }
-
-  type WhatsAppConnectionGetPayload<S extends boolean | null | undefined | WhatsAppConnectionDefaultArgs> = $Result.GetResult<Prisma.$WhatsAppConnectionPayload, S>
-
-  type WhatsAppConnectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<WhatsAppConnectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: WhatsAppConnectionCountAggregateInputType | true
-    }
-
-  export interface WhatsAppConnectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WhatsAppConnection'], meta: { name: 'WhatsAppConnection' } }
-    /**
-     * Find zero or one WhatsAppConnection that matches the filter.
-     * @param {WhatsAppConnectionFindUniqueArgs} args - Arguments to find a WhatsAppConnection
-     * @example
-     * // Get one WhatsAppConnection
-     * const whatsAppConnection = await prisma.whatsAppConnection.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends WhatsAppConnectionFindUniqueArgs>(args: SelectSubset<T, WhatsAppConnectionFindUniqueArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one WhatsAppConnection that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {WhatsAppConnectionFindUniqueOrThrowArgs} args - Arguments to find a WhatsAppConnection
-     * @example
-     * // Get one WhatsAppConnection
-     * const whatsAppConnection = await prisma.whatsAppConnection.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends WhatsAppConnectionFindUniqueOrThrowArgs>(args: SelectSubset<T, WhatsAppConnectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first WhatsAppConnection that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionFindFirstArgs} args - Arguments to find a WhatsAppConnection
-     * @example
-     * // Get one WhatsAppConnection
-     * const whatsAppConnection = await prisma.whatsAppConnection.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends WhatsAppConnectionFindFirstArgs>(args?: SelectSubset<T, WhatsAppConnectionFindFirstArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first WhatsAppConnection that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionFindFirstOrThrowArgs} args - Arguments to find a WhatsAppConnection
-     * @example
-     * // Get one WhatsAppConnection
-     * const whatsAppConnection = await prisma.whatsAppConnection.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends WhatsAppConnectionFindFirstOrThrowArgs>(args?: SelectSubset<T, WhatsAppConnectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more WhatsAppConnections that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all WhatsAppConnections
-     * const whatsAppConnections = await prisma.whatsAppConnection.findMany()
-     * 
-     * // Get first 10 WhatsAppConnections
-     * const whatsAppConnections = await prisma.whatsAppConnection.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const whatsAppConnectionWithIdOnly = await prisma.whatsAppConnection.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends WhatsAppConnectionFindManyArgs>(args?: SelectSubset<T, WhatsAppConnectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a WhatsAppConnection.
-     * @param {WhatsAppConnectionCreateArgs} args - Arguments to create a WhatsAppConnection.
-     * @example
-     * // Create one WhatsAppConnection
-     * const WhatsAppConnection = await prisma.whatsAppConnection.create({
-     *   data: {
-     *     // ... data to create a WhatsAppConnection
-     *   }
-     * })
-     * 
-     */
-    create<T extends WhatsAppConnectionCreateArgs>(args: SelectSubset<T, WhatsAppConnectionCreateArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many WhatsAppConnections.
-     * @param {WhatsAppConnectionCreateManyArgs} args - Arguments to create many WhatsAppConnections.
-     * @example
-     * // Create many WhatsAppConnections
-     * const whatsAppConnection = await prisma.whatsAppConnection.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends WhatsAppConnectionCreateManyArgs>(args?: SelectSubset<T, WhatsAppConnectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many WhatsAppConnections and returns the data saved in the database.
-     * @param {WhatsAppConnectionCreateManyAndReturnArgs} args - Arguments to create many WhatsAppConnections.
-     * @example
-     * // Create many WhatsAppConnections
-     * const whatsAppConnection = await prisma.whatsAppConnection.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many WhatsAppConnections and only return the `id`
-     * const whatsAppConnectionWithIdOnly = await prisma.whatsAppConnection.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends WhatsAppConnectionCreateManyAndReturnArgs>(args?: SelectSubset<T, WhatsAppConnectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a WhatsAppConnection.
-     * @param {WhatsAppConnectionDeleteArgs} args - Arguments to delete one WhatsAppConnection.
-     * @example
-     * // Delete one WhatsAppConnection
-     * const WhatsAppConnection = await prisma.whatsAppConnection.delete({
-     *   where: {
-     *     // ... filter to delete one WhatsAppConnection
-     *   }
-     * })
-     * 
-     */
-    delete<T extends WhatsAppConnectionDeleteArgs>(args: SelectSubset<T, WhatsAppConnectionDeleteArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one WhatsAppConnection.
-     * @param {WhatsAppConnectionUpdateArgs} args - Arguments to update one WhatsAppConnection.
-     * @example
-     * // Update one WhatsAppConnection
-     * const whatsAppConnection = await prisma.whatsAppConnection.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends WhatsAppConnectionUpdateArgs>(args: SelectSubset<T, WhatsAppConnectionUpdateArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more WhatsAppConnections.
-     * @param {WhatsAppConnectionDeleteManyArgs} args - Arguments to filter WhatsAppConnections to delete.
-     * @example
-     * // Delete a few WhatsAppConnections
-     * const { count } = await prisma.whatsAppConnection.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends WhatsAppConnectionDeleteManyArgs>(args?: SelectSubset<T, WhatsAppConnectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more WhatsAppConnections.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many WhatsAppConnections
-     * const whatsAppConnection = await prisma.whatsAppConnection.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends WhatsAppConnectionUpdateManyArgs>(args: SelectSubset<T, WhatsAppConnectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more WhatsAppConnections and returns the data updated in the database.
-     * @param {WhatsAppConnectionUpdateManyAndReturnArgs} args - Arguments to update many WhatsAppConnections.
-     * @example
-     * // Update many WhatsAppConnections
-     * const whatsAppConnection = await prisma.whatsAppConnection.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more WhatsAppConnections and only return the `id`
-     * const whatsAppConnectionWithIdOnly = await prisma.whatsAppConnection.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends WhatsAppConnectionUpdateManyAndReturnArgs>(args: SelectSubset<T, WhatsAppConnectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one WhatsAppConnection.
-     * @param {WhatsAppConnectionUpsertArgs} args - Arguments to update or create a WhatsAppConnection.
-     * @example
-     * // Update or create a WhatsAppConnection
-     * const whatsAppConnection = await prisma.whatsAppConnection.upsert({
-     *   create: {
-     *     // ... data to create a WhatsAppConnection
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the WhatsAppConnection we want to update
-     *   }
-     * })
-     */
-    upsert<T extends WhatsAppConnectionUpsertArgs>(args: SelectSubset<T, WhatsAppConnectionUpsertArgs<ExtArgs>>): Prisma__WhatsAppConnectionClient<$Result.GetResult<Prisma.$WhatsAppConnectionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of WhatsAppConnections.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionCountArgs} args - Arguments to filter WhatsAppConnections to count.
-     * @example
-     * // Count the number of WhatsAppConnections
-     * const count = await prisma.whatsAppConnection.count({
-     *   where: {
-     *     // ... the filter for the WhatsAppConnections we want to count
-     *   }
-     * })
-    **/
-    count<T extends WhatsAppConnectionCountArgs>(
-      args?: Subset<T, WhatsAppConnectionCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], WhatsAppConnectionCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a WhatsAppConnection.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends WhatsAppConnectionAggregateArgs>(args: Subset<T, WhatsAppConnectionAggregateArgs>): Prisma.PrismaPromise<GetWhatsAppConnectionAggregateType<T>>
-
-    /**
-     * Group by WhatsAppConnection.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WhatsAppConnectionGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends WhatsAppConnectionGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: WhatsAppConnectionGroupByArgs['orderBy'] }
-        : { orderBy?: WhatsAppConnectionGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, WhatsAppConnectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWhatsAppConnectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the WhatsAppConnection model
-   */
-  readonly fields: WhatsAppConnectionFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for WhatsAppConnection.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__WhatsAppConnectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    workspace<T extends WorkspaceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WorkspaceDefaultArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the WhatsAppConnection model
-   */
-  interface WhatsAppConnectionFieldRefs {
-    readonly id: FieldRef<"WhatsAppConnection", 'String'>
-    readonly workspaceId: FieldRef<"WhatsAppConnection", 'String'>
-    readonly phoneNumber: FieldRef<"WhatsAppConnection", 'String'>
-    readonly name: FieldRef<"WhatsAppConnection", 'String'>
-    readonly status: FieldRef<"WhatsAppConnection", 'WhatsAppStatus'>
-    readonly qrCode: FieldRef<"WhatsAppConnection", 'String'>
-    readonly authData: FieldRef<"WhatsAppConnection", 'Bytes'>
-    readonly sessionData: FieldRef<"WhatsAppConnection", 'Json'>
-    readonly lastError: FieldRef<"WhatsAppConnection", 'String'>
-    readonly lastSync: FieldRef<"WhatsAppConnection", 'DateTime'>
-    readonly createdAt: FieldRef<"WhatsAppConnection", 'DateTime'>
-    readonly updatedAt: FieldRef<"WhatsAppConnection", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * WhatsAppConnection findUnique
-   */
-  export type WhatsAppConnectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * Filter, which WhatsAppConnection to fetch.
-     */
-    where: WhatsAppConnectionWhereUniqueInput
-  }
-
-  /**
-   * WhatsAppConnection findUniqueOrThrow
-   */
-  export type WhatsAppConnectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * Filter, which WhatsAppConnection to fetch.
-     */
-    where: WhatsAppConnectionWhereUniqueInput
-  }
-
-  /**
-   * WhatsAppConnection findFirst
-   */
-  export type WhatsAppConnectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * Filter, which WhatsAppConnection to fetch.
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of WhatsAppConnections to fetch.
-     */
-    orderBy?: WhatsAppConnectionOrderByWithRelationInput | WhatsAppConnectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for WhatsAppConnections.
-     */
-    cursor?: WhatsAppConnectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` WhatsAppConnections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` WhatsAppConnections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of WhatsAppConnections.
-     */
-    distinct?: WhatsAppConnectionScalarFieldEnum | WhatsAppConnectionScalarFieldEnum[]
-  }
-
-  /**
-   * WhatsAppConnection findFirstOrThrow
-   */
-  export type WhatsAppConnectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * Filter, which WhatsAppConnection to fetch.
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of WhatsAppConnections to fetch.
-     */
-    orderBy?: WhatsAppConnectionOrderByWithRelationInput | WhatsAppConnectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for WhatsAppConnections.
-     */
-    cursor?: WhatsAppConnectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` WhatsAppConnections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` WhatsAppConnections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of WhatsAppConnections.
-     */
-    distinct?: WhatsAppConnectionScalarFieldEnum | WhatsAppConnectionScalarFieldEnum[]
-  }
-
-  /**
-   * WhatsAppConnection findMany
-   */
-  export type WhatsAppConnectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * Filter, which WhatsAppConnections to fetch.
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of WhatsAppConnections to fetch.
-     */
-    orderBy?: WhatsAppConnectionOrderByWithRelationInput | WhatsAppConnectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing WhatsAppConnections.
-     */
-    cursor?: WhatsAppConnectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` WhatsAppConnections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` WhatsAppConnections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of WhatsAppConnections.
-     */
-    distinct?: WhatsAppConnectionScalarFieldEnum | WhatsAppConnectionScalarFieldEnum[]
-  }
-
-  /**
-   * WhatsAppConnection create
-   */
-  export type WhatsAppConnectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * The data needed to create a WhatsAppConnection.
-     */
-    data: XOR<WhatsAppConnectionCreateInput, WhatsAppConnectionUncheckedCreateInput>
-  }
-
-  /**
-   * WhatsAppConnection createMany
-   */
-  export type WhatsAppConnectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many WhatsAppConnections.
-     */
-    data: WhatsAppConnectionCreateManyInput | WhatsAppConnectionCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * WhatsAppConnection createManyAndReturn
-   */
-  export type WhatsAppConnectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * The data used to create many WhatsAppConnections.
-     */
-    data: WhatsAppConnectionCreateManyInput | WhatsAppConnectionCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * WhatsAppConnection update
-   */
-  export type WhatsAppConnectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * The data needed to update a WhatsAppConnection.
-     */
-    data: XOR<WhatsAppConnectionUpdateInput, WhatsAppConnectionUncheckedUpdateInput>
-    /**
-     * Choose, which WhatsAppConnection to update.
-     */
-    where: WhatsAppConnectionWhereUniqueInput
-  }
-
-  /**
-   * WhatsAppConnection updateMany
-   */
-  export type WhatsAppConnectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update WhatsAppConnections.
-     */
-    data: XOR<WhatsAppConnectionUpdateManyMutationInput, WhatsAppConnectionUncheckedUpdateManyInput>
-    /**
-     * Filter which WhatsAppConnections to update
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * Limit how many WhatsAppConnections to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * WhatsAppConnection updateManyAndReturn
-   */
-  export type WhatsAppConnectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * The data used to update WhatsAppConnections.
-     */
-    data: XOR<WhatsAppConnectionUpdateManyMutationInput, WhatsAppConnectionUncheckedUpdateManyInput>
-    /**
-     * Filter which WhatsAppConnections to update
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * Limit how many WhatsAppConnections to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * WhatsAppConnection upsert
-   */
-  export type WhatsAppConnectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the WhatsAppConnection to update in case it exists.
-     */
-    where: WhatsAppConnectionWhereUniqueInput
-    /**
-     * In case the WhatsAppConnection found by the `where` argument doesn't exist, create a new WhatsAppConnection with this data.
-     */
-    create: XOR<WhatsAppConnectionCreateInput, WhatsAppConnectionUncheckedCreateInput>
-    /**
-     * In case the WhatsAppConnection was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<WhatsAppConnectionUpdateInput, WhatsAppConnectionUncheckedUpdateInput>
-  }
-
-  /**
-   * WhatsAppConnection delete
-   */
-  export type WhatsAppConnectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-    /**
-     * Filter which WhatsAppConnection to delete.
-     */
-    where: WhatsAppConnectionWhereUniqueInput
-  }
-
-  /**
-   * WhatsAppConnection deleteMany
-   */
-  export type WhatsAppConnectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which WhatsAppConnections to delete
-     */
-    where?: WhatsAppConnectionWhereInput
-    /**
-     * Limit how many WhatsAppConnections to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * WhatsAppConnection without action
-   */
-  export type WhatsAppConnectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WhatsAppConnection
-     */
-    select?: WhatsAppConnectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the WhatsAppConnection
-     */
-    omit?: WhatsAppConnectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WhatsAppConnectionInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model Integration
    */
 
@@ -35095,24 +33803,6 @@ export namespace Prisma {
   export type TestimonialScalarFieldEnum = (typeof TestimonialScalarFieldEnum)[keyof typeof TestimonialScalarFieldEnum]
 
 
-  export const WhatsAppConnectionScalarFieldEnum: {
-    id: 'id',
-    workspaceId: 'workspaceId',
-    phoneNumber: 'phoneNumber',
-    name: 'name',
-    status: 'status',
-    qrCode: 'qrCode',
-    authData: 'authData',
-    sessionData: 'sessionData',
-    lastError: 'lastError',
-    lastSync: 'lastSync',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type WhatsAppConnectionScalarFieldEnum = (typeof WhatsAppConnectionScalarFieldEnum)[keyof typeof WhatsAppConnectionScalarFieldEnum]
-
-
   export const IntegrationScalarFieldEnum: {
     id: 'id',
     workspaceId: 'workspaceId',
@@ -35379,34 +34069,6 @@ export namespace Prisma {
    * Reference to a field of type 'QueryMode'
    */
   export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-  /**
-   * Reference to a field of type 'WhatsAppStatus'
-   */
-  export type EnumWhatsAppStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WhatsAppStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'WhatsAppStatus[]'
-   */
-  export type ListEnumWhatsAppStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WhatsAppStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Bytes'
-   */
-  export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
-    
-
-
-  /**
-   * Reference to a field of type 'Bytes[]'
-   */
-  export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
     
   /**
    * Deep Input Types
@@ -35707,7 +34369,6 @@ export namespace Prisma {
     quotes?: QuoteListRelationFilter
     briefings?: BriefingListRelationFilter
     portfolio?: XOR<PortfolioNullableScalarRelationFilter, PortfolioWhereInput> | null
-    whatsapps?: WhatsAppConnectionListRelationFilter
     integrations?: IntegrationListRelationFilter
     webhooks?: WebhookListRelationFilter
   }
@@ -35736,7 +34397,6 @@ export namespace Prisma {
     quotes?: QuoteOrderByRelationAggregateInput
     briefings?: BriefingOrderByRelationAggregateInput
     portfolio?: PortfolioOrderByWithRelationInput
-    whatsapps?: WhatsAppConnectionOrderByRelationAggregateInput
     integrations?: IntegrationOrderByRelationAggregateInput
     webhooks?: WebhookOrderByRelationAggregateInput
   }
@@ -35768,7 +34428,6 @@ export namespace Prisma {
     quotes?: QuoteListRelationFilter
     briefings?: BriefingListRelationFilter
     portfolio?: XOR<PortfolioNullableScalarRelationFilter, PortfolioWhereInput> | null
-    whatsapps?: WhatsAppConnectionListRelationFilter
     integrations?: IntegrationListRelationFilter
     webhooks?: WebhookListRelationFilter
   }, "id" | "slug" | "ownerId">
@@ -37437,96 +36096,6 @@ export namespace Prisma {
     order?: IntWithAggregatesFilter<"Testimonial"> | number
   }
 
-  export type WhatsAppConnectionWhereInput = {
-    AND?: WhatsAppConnectionWhereInput | WhatsAppConnectionWhereInput[]
-    OR?: WhatsAppConnectionWhereInput[]
-    NOT?: WhatsAppConnectionWhereInput | WhatsAppConnectionWhereInput[]
-    id?: StringFilter<"WhatsAppConnection"> | string
-    workspaceId?: StringFilter<"WhatsAppConnection"> | string
-    phoneNumber?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    name?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    status?: EnumWhatsAppStatusFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
-    qrCode?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    authData?: BytesNullableFilter<"WhatsAppConnection"> | Bytes | null
-    sessionData?: JsonNullableFilter<"WhatsAppConnection">
-    lastError?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    lastSync?: DateTimeNullableFilter<"WhatsAppConnection"> | Date | string | null
-    createdAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
-    updatedAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
-    workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
-  }
-
-  export type WhatsAppConnectionOrderByWithRelationInput = {
-    id?: SortOrder
-    workspaceId?: SortOrder
-    phoneNumber?: SortOrderInput | SortOrder
-    name?: SortOrderInput | SortOrder
-    status?: SortOrder
-    qrCode?: SortOrderInput | SortOrder
-    authData?: SortOrderInput | SortOrder
-    sessionData?: SortOrderInput | SortOrder
-    lastError?: SortOrderInput | SortOrder
-    lastSync?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    workspace?: WorkspaceOrderByWithRelationInput
-  }
-
-  export type WhatsAppConnectionWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: WhatsAppConnectionWhereInput | WhatsAppConnectionWhereInput[]
-    OR?: WhatsAppConnectionWhereInput[]
-    NOT?: WhatsAppConnectionWhereInput | WhatsAppConnectionWhereInput[]
-    workspaceId?: StringFilter<"WhatsAppConnection"> | string
-    phoneNumber?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    name?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    status?: EnumWhatsAppStatusFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
-    qrCode?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    authData?: BytesNullableFilter<"WhatsAppConnection"> | Bytes | null
-    sessionData?: JsonNullableFilter<"WhatsAppConnection">
-    lastError?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    lastSync?: DateTimeNullableFilter<"WhatsAppConnection"> | Date | string | null
-    createdAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
-    updatedAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
-    workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
-  }, "id">
-
-  export type WhatsAppConnectionOrderByWithAggregationInput = {
-    id?: SortOrder
-    workspaceId?: SortOrder
-    phoneNumber?: SortOrderInput | SortOrder
-    name?: SortOrderInput | SortOrder
-    status?: SortOrder
-    qrCode?: SortOrderInput | SortOrder
-    authData?: SortOrderInput | SortOrder
-    sessionData?: SortOrderInput | SortOrder
-    lastError?: SortOrderInput | SortOrder
-    lastSync?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: WhatsAppConnectionCountOrderByAggregateInput
-    _max?: WhatsAppConnectionMaxOrderByAggregateInput
-    _min?: WhatsAppConnectionMinOrderByAggregateInput
-  }
-
-  export type WhatsAppConnectionScalarWhereWithAggregatesInput = {
-    AND?: WhatsAppConnectionScalarWhereWithAggregatesInput | WhatsAppConnectionScalarWhereWithAggregatesInput[]
-    OR?: WhatsAppConnectionScalarWhereWithAggregatesInput[]
-    NOT?: WhatsAppConnectionScalarWhereWithAggregatesInput | WhatsAppConnectionScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"WhatsAppConnection"> | string
-    workspaceId?: StringWithAggregatesFilter<"WhatsAppConnection"> | string
-    phoneNumber?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
-    name?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
-    status?: EnumWhatsAppStatusWithAggregatesFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
-    qrCode?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
-    authData?: BytesNullableWithAggregatesFilter<"WhatsAppConnection"> | Bytes | null
-    sessionData?: JsonNullableWithAggregatesFilter<"WhatsAppConnection">
-    lastError?: StringNullableWithAggregatesFilter<"WhatsAppConnection"> | string | null
-    lastSync?: DateTimeNullableWithAggregatesFilter<"WhatsAppConnection"> | Date | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"WhatsAppConnection"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"WhatsAppConnection"> | Date | string
-  }
-
   export type IntegrationWhereInput = {
     AND?: IntegrationWhereInput | IntegrationWhereInput[]
     OR?: IntegrationWhereInput[]
@@ -37976,7 +36545,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -38004,7 +36572,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -38032,7 +36599,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -38060,7 +36626,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -39904,110 +38469,6 @@ export namespace Prisma {
     order?: IntFieldUpdateOperationsInput | number
   }
 
-  export type WhatsAppConnectionCreateInput = {
-    id?: string
-    phoneNumber?: string | null
-    name?: string | null
-    status?: $Enums.WhatsAppStatus
-    qrCode?: string | null
-    authData?: Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: string | null
-    lastSync?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    workspace: WorkspaceCreateNestedOneWithoutWhatsappsInput
-  }
-
-  export type WhatsAppConnectionUncheckedCreateInput = {
-    id?: string
-    workspaceId: string
-    phoneNumber?: string | null
-    name?: string | null
-    status?: $Enums.WhatsAppStatus
-    qrCode?: string | null
-    authData?: Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: string | null
-    lastSync?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type WhatsAppConnectionUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    workspace?: WorkspaceUpdateOneRequiredWithoutWhatsappsNestedInput
-  }
-
-  export type WhatsAppConnectionUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    workspaceId?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type WhatsAppConnectionCreateManyInput = {
-    id?: string
-    workspaceId: string
-    phoneNumber?: string | null
-    name?: string | null
-    status?: $Enums.WhatsAppStatus
-    qrCode?: string | null
-    authData?: Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: string | null
-    lastSync?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type WhatsAppConnectionUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type WhatsAppConnectionUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    workspaceId?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type IntegrationCreateInput = {
     id?: string
     type: string
@@ -40562,12 +39023,6 @@ export namespace Prisma {
     isNot?: PortfolioWhereInput | null
   }
 
-  export type WhatsAppConnectionListRelationFilter = {
-    every?: WhatsAppConnectionWhereInput
-    some?: WhatsAppConnectionWhereInput
-    none?: WhatsAppConnectionWhereInput
-  }
-
   export type IntegrationListRelationFilter = {
     every?: IntegrationWhereInput
     some?: IntegrationWhereInput
@@ -40617,10 +39072,6 @@ export namespace Prisma {
   }
 
   export type BriefingOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type WhatsAppConnectionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -41987,83 +40438,6 @@ export namespace Prisma {
     order?: SortOrder
   }
 
-  export type EnumWhatsAppStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.WhatsAppStatus | EnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumWhatsAppStatusFilter<$PrismaModel> | $Enums.WhatsAppStatus
-  }
-
-  export type BytesNullableFilter<$PrismaModel = never> = {
-    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
-    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Bytes | null
-  }
-
-  export type WhatsAppConnectionCountOrderByAggregateInput = {
-    id?: SortOrder
-    workspaceId?: SortOrder
-    phoneNumber?: SortOrder
-    name?: SortOrder
-    status?: SortOrder
-    qrCode?: SortOrder
-    authData?: SortOrder
-    sessionData?: SortOrder
-    lastError?: SortOrder
-    lastSync?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type WhatsAppConnectionMaxOrderByAggregateInput = {
-    id?: SortOrder
-    workspaceId?: SortOrder
-    phoneNumber?: SortOrder
-    name?: SortOrder
-    status?: SortOrder
-    qrCode?: SortOrder
-    authData?: SortOrder
-    lastError?: SortOrder
-    lastSync?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type WhatsAppConnectionMinOrderByAggregateInput = {
-    id?: SortOrder
-    workspaceId?: SortOrder
-    phoneNumber?: SortOrder
-    name?: SortOrder
-    status?: SortOrder
-    qrCode?: SortOrder
-    authData?: SortOrder
-    lastError?: SortOrder
-    lastSync?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type EnumWhatsAppStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.WhatsAppStatus | EnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumWhatsAppStatusWithAggregatesFilter<$PrismaModel> | $Enums.WhatsAppStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
-    _max?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
-  }
-
-  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
-    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Bytes | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
-  }
-
   export type IntegrationWorkspaceIdTypeCompoundUniqueInput = {
     workspaceId: string
     type: string
@@ -42382,13 +40756,6 @@ export namespace Prisma {
     connect?: PortfolioWhereUniqueInput
   }
 
-  export type WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput = {
-    create?: XOR<WhatsAppConnectionCreateWithoutWorkspaceInput, WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput> | WhatsAppConnectionCreateWithoutWorkspaceInput[] | WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput[]
-    connectOrCreate?: WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput | WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput[]
-    createMany?: WhatsAppConnectionCreateManyWorkspaceInputEnvelope
-    connect?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-  }
-
   export type IntegrationCreateNestedManyWithoutWorkspaceInput = {
     create?: XOR<IntegrationCreateWithoutWorkspaceInput, IntegrationUncheckedCreateWithoutWorkspaceInput> | IntegrationCreateWithoutWorkspaceInput[] | IntegrationUncheckedCreateWithoutWorkspaceInput[]
     connectOrCreate?: IntegrationCreateOrConnectWithoutWorkspaceInput | IntegrationCreateOrConnectWithoutWorkspaceInput[]
@@ -42477,13 +40844,6 @@ export namespace Prisma {
     create?: XOR<PortfolioCreateWithoutWorkspaceInput, PortfolioUncheckedCreateWithoutWorkspaceInput>
     connectOrCreate?: PortfolioCreateOrConnectWithoutWorkspaceInput
     connect?: PortfolioWhereUniqueInput
-  }
-
-  export type WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput = {
-    create?: XOR<WhatsAppConnectionCreateWithoutWorkspaceInput, WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput> | WhatsAppConnectionCreateWithoutWorkspaceInput[] | WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput[]
-    connectOrCreate?: WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput | WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput[]
-    createMany?: WhatsAppConnectionCreateManyWorkspaceInputEnvelope
-    connect?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
   }
 
   export type IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput = {
@@ -42666,20 +41026,6 @@ export namespace Prisma {
     update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutWorkspaceInput, PortfolioUpdateWithoutWorkspaceInput>, PortfolioUncheckedUpdateWithoutWorkspaceInput>
   }
 
-  export type WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput = {
-    create?: XOR<WhatsAppConnectionCreateWithoutWorkspaceInput, WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput> | WhatsAppConnectionCreateWithoutWorkspaceInput[] | WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput[]
-    connectOrCreate?: WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput | WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput[]
-    upsert?: WhatsAppConnectionUpsertWithWhereUniqueWithoutWorkspaceInput | WhatsAppConnectionUpsertWithWhereUniqueWithoutWorkspaceInput[]
-    createMany?: WhatsAppConnectionCreateManyWorkspaceInputEnvelope
-    set?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    disconnect?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    delete?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    connect?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    update?: WhatsAppConnectionUpdateWithWhereUniqueWithoutWorkspaceInput | WhatsAppConnectionUpdateWithWhereUniqueWithoutWorkspaceInput[]
-    updateMany?: WhatsAppConnectionUpdateManyWithWhereWithoutWorkspaceInput | WhatsAppConnectionUpdateManyWithWhereWithoutWorkspaceInput[]
-    deleteMany?: WhatsAppConnectionScalarWhereInput | WhatsAppConnectionScalarWhereInput[]
-  }
-
   export type IntegrationUpdateManyWithoutWorkspaceNestedInput = {
     create?: XOR<IntegrationCreateWithoutWorkspaceInput, IntegrationUncheckedCreateWithoutWorkspaceInput> | IntegrationCreateWithoutWorkspaceInput[] | IntegrationUncheckedCreateWithoutWorkspaceInput[]
     connectOrCreate?: IntegrationCreateOrConnectWithoutWorkspaceInput | IntegrationCreateOrConnectWithoutWorkspaceInput[]
@@ -42856,20 +41202,6 @@ export namespace Prisma {
     delete?: PortfolioWhereInput | boolean
     connect?: PortfolioWhereUniqueInput
     update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutWorkspaceInput, PortfolioUpdateWithoutWorkspaceInput>, PortfolioUncheckedUpdateWithoutWorkspaceInput>
-  }
-
-  export type WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput = {
-    create?: XOR<WhatsAppConnectionCreateWithoutWorkspaceInput, WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput> | WhatsAppConnectionCreateWithoutWorkspaceInput[] | WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput[]
-    connectOrCreate?: WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput | WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput[]
-    upsert?: WhatsAppConnectionUpsertWithWhereUniqueWithoutWorkspaceInput | WhatsAppConnectionUpsertWithWhereUniqueWithoutWorkspaceInput[]
-    createMany?: WhatsAppConnectionCreateManyWorkspaceInputEnvelope
-    set?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    disconnect?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    delete?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    connect?: WhatsAppConnectionWhereUniqueInput | WhatsAppConnectionWhereUniqueInput[]
-    update?: WhatsAppConnectionUpdateWithWhereUniqueWithoutWorkspaceInput | WhatsAppConnectionUpdateWithWhereUniqueWithoutWorkspaceInput[]
-    updateMany?: WhatsAppConnectionUpdateManyWithWhereWithoutWorkspaceInput | WhatsAppConnectionUpdateManyWithWhereWithoutWorkspaceInput[]
-    deleteMany?: WhatsAppConnectionScalarWhereInput | WhatsAppConnectionScalarWhereInput[]
   }
 
   export type IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput = {
@@ -43999,28 +42331,6 @@ export namespace Prisma {
     update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutTestimonialsInput, PortfolioUpdateWithoutTestimonialsInput>, PortfolioUncheckedUpdateWithoutTestimonialsInput>
   }
 
-  export type WorkspaceCreateNestedOneWithoutWhatsappsInput = {
-    create?: XOR<WorkspaceCreateWithoutWhatsappsInput, WorkspaceUncheckedCreateWithoutWhatsappsInput>
-    connectOrCreate?: WorkspaceCreateOrConnectWithoutWhatsappsInput
-    connect?: WorkspaceWhereUniqueInput
-  }
-
-  export type EnumWhatsAppStatusFieldUpdateOperationsInput = {
-    set?: $Enums.WhatsAppStatus
-  }
-
-  export type NullableBytesFieldUpdateOperationsInput = {
-    set?: Bytes | null
-  }
-
-  export type WorkspaceUpdateOneRequiredWithoutWhatsappsNestedInput = {
-    create?: XOR<WorkspaceCreateWithoutWhatsappsInput, WorkspaceUncheckedCreateWithoutWhatsappsInput>
-    connectOrCreate?: WorkspaceCreateOrConnectWithoutWhatsappsInput
-    upsert?: WorkspaceUpsertWithoutWhatsappsInput
-    connect?: WorkspaceWhereUniqueInput
-    update?: XOR<XOR<WorkspaceUpdateToOneWithWhereWithoutWhatsappsInput, WorkspaceUpdateWithoutWhatsappsInput>, WorkspaceUncheckedUpdateWithoutWhatsappsInput>
-  }
-
   export type WorkspaceCreateNestedOneWithoutIntegrationsInput = {
     create?: XOR<WorkspaceCreateWithoutIntegrationsInput, WorkspaceUncheckedCreateWithoutIntegrationsInput>
     connectOrCreate?: WorkspaceCreateOrConnectWithoutIntegrationsInput
@@ -44473,40 +42783,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedEnumWhatsAppStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.WhatsAppStatus | EnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumWhatsAppStatusFilter<$PrismaModel> | $Enums.WhatsAppStatus
-  }
-
-  export type NestedBytesNullableFilter<$PrismaModel = never> = {
-    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
-    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Bytes | null
-  }
-
-  export type NestedEnumWhatsAppStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.WhatsAppStatus | EnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.WhatsAppStatus[] | ListEnumWhatsAppStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumWhatsAppStatusWithAggregatesFilter<$PrismaModel> | $Enums.WhatsAppStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
-    _max?: NestedEnumWhatsAppStatusFilter<$PrismaModel>
-  }
-
-  export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
-    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Bytes | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
-  }
-
   export type AccountCreateWithoutUserInput = {
     id?: string
     type: string
@@ -44589,7 +42865,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -44616,7 +42891,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -44719,7 +42993,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -44746,7 +43019,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -45367,44 +43639,6 @@ export namespace Prisma {
     create: XOR<PortfolioCreateWithoutWorkspaceInput, PortfolioUncheckedCreateWithoutWorkspaceInput>
   }
 
-  export type WhatsAppConnectionCreateWithoutWorkspaceInput = {
-    id?: string
-    phoneNumber?: string | null
-    name?: string | null
-    status?: $Enums.WhatsAppStatus
-    qrCode?: string | null
-    authData?: Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: string | null
-    lastSync?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput = {
-    id?: string
-    phoneNumber?: string | null
-    name?: string | null
-    status?: $Enums.WhatsAppStatus
-    qrCode?: string | null
-    authData?: Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: string | null
-    lastSync?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type WhatsAppConnectionCreateOrConnectWithoutWorkspaceInput = {
-    where: WhatsAppConnectionWhereUniqueInput
-    create: XOR<WhatsAppConnectionCreateWithoutWorkspaceInput, WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput>
-  }
-
-  export type WhatsAppConnectionCreateManyWorkspaceInputEnvelope = {
-    data: WhatsAppConnectionCreateManyWorkspaceInput | WhatsAppConnectionCreateManyWorkspaceInput[]
-    skipDuplicates?: boolean
-  }
-
   export type IntegrationCreateWithoutWorkspaceInput = {
     id?: string
     type: string
@@ -45887,40 +44121,6 @@ export namespace Prisma {
     testimonials?: TestimonialUncheckedUpdateManyWithoutPortfolioNestedInput
   }
 
-  export type WhatsAppConnectionUpsertWithWhereUniqueWithoutWorkspaceInput = {
-    where: WhatsAppConnectionWhereUniqueInput
-    update: XOR<WhatsAppConnectionUpdateWithoutWorkspaceInput, WhatsAppConnectionUncheckedUpdateWithoutWorkspaceInput>
-    create: XOR<WhatsAppConnectionCreateWithoutWorkspaceInput, WhatsAppConnectionUncheckedCreateWithoutWorkspaceInput>
-  }
-
-  export type WhatsAppConnectionUpdateWithWhereUniqueWithoutWorkspaceInput = {
-    where: WhatsAppConnectionWhereUniqueInput
-    data: XOR<WhatsAppConnectionUpdateWithoutWorkspaceInput, WhatsAppConnectionUncheckedUpdateWithoutWorkspaceInput>
-  }
-
-  export type WhatsAppConnectionUpdateManyWithWhereWithoutWorkspaceInput = {
-    where: WhatsAppConnectionScalarWhereInput
-    data: XOR<WhatsAppConnectionUpdateManyMutationInput, WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceInput>
-  }
-
-  export type WhatsAppConnectionScalarWhereInput = {
-    AND?: WhatsAppConnectionScalarWhereInput | WhatsAppConnectionScalarWhereInput[]
-    OR?: WhatsAppConnectionScalarWhereInput[]
-    NOT?: WhatsAppConnectionScalarWhereInput | WhatsAppConnectionScalarWhereInput[]
-    id?: StringFilter<"WhatsAppConnection"> | string
-    workspaceId?: StringFilter<"WhatsAppConnection"> | string
-    phoneNumber?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    name?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    status?: EnumWhatsAppStatusFilter<"WhatsAppConnection"> | $Enums.WhatsAppStatus
-    qrCode?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    authData?: BytesNullableFilter<"WhatsAppConnection"> | Bytes | null
-    sessionData?: JsonNullableFilter<"WhatsAppConnection">
-    lastError?: StringNullableFilter<"WhatsAppConnection"> | string | null
-    lastSync?: DateTimeNullableFilter<"WhatsAppConnection"> | Date | string | null
-    createdAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
-    updatedAt?: DateTimeFilter<"WhatsAppConnection"> | Date | string
-  }
-
   export type IntegrationUpsertWithWhereUniqueWithoutWorkspaceInput = {
     where: IntegrationWhereUniqueInput
     update: XOR<IntegrationUpdateWithoutWorkspaceInput, IntegrationUncheckedUpdateWithoutWorkspaceInput>
@@ -46002,7 +44202,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -46029,7 +44228,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -46072,7 +44270,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -46099,7 +44296,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -46126,7 +44322,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -46153,7 +44348,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -46374,7 +44568,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -46401,7 +44594,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -46514,7 +44706,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -46541,7 +44732,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -46658,7 +44848,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -46685,7 +44874,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -47086,7 +45274,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -47113,7 +45300,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -47224,7 +45410,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -47251,7 +45436,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -47601,7 +45785,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -47628,7 +45811,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -47720,7 +45902,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -47747,7 +45928,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -47829,7 +46009,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -47856,7 +46035,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -47929,7 +46107,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -47956,7 +46133,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48013,7 +46189,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -48040,7 +46215,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -48113,7 +46287,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48140,7 +46313,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48183,7 +46355,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -48210,7 +46381,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -48253,7 +46423,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48280,7 +46449,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48307,7 +46475,6 @@ export namespace Prisma {
     plans?: PlanCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -48334,7 +46501,6 @@ export namespace Prisma {
     plans?: PlanUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -48456,7 +46622,6 @@ export namespace Prisma {
     plans?: PlanUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48483,7 +46648,6 @@ export namespace Prisma {
     plans?: PlanUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48817,7 +46981,6 @@ export namespace Prisma {
     plans?: PlanCreateNestedManyWithoutWorkspaceInput
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -48844,7 +47007,6 @@ export namespace Prisma {
     plans?: PlanUncheckedCreateNestedManyWithoutWorkspaceInput
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -48936,7 +47098,6 @@ export namespace Prisma {
     plans?: PlanUpdateManyWithoutWorkspaceNestedInput
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -48963,7 +47124,6 @@ export namespace Prisma {
     plans?: PlanUncheckedUpdateManyWithoutWorkspaceNestedInput
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -49045,7 +47205,6 @@ export namespace Prisma {
     plans?: PlanCreateNestedManyWithoutWorkspaceInput
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
@@ -49072,7 +47231,6 @@ export namespace Prisma {
     plans?: PlanUncheckedCreateNestedManyWithoutWorkspaceInput
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
@@ -49177,7 +47335,6 @@ export namespace Prisma {
     plans?: PlanUpdateManyWithoutWorkspaceNestedInput
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
@@ -49204,7 +47361,6 @@ export namespace Prisma {
     plans?: PlanUncheckedUpdateManyWithoutWorkspaceNestedInput
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
@@ -49446,130 +47602,6 @@ export namespace Prisma {
     projects?: PortfolioProjectUncheckedUpdateManyWithoutPortfolioNestedInput
   }
 
-  export type WorkspaceCreateWithoutWhatsappsInput = {
-    id?: string
-    name: string
-    slug: string
-    logo?: string | null
-    primaryColor?: string | null
-    theme?: string
-    currency?: string
-    revenueGoal?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    owner: UserCreateNestedOneWithoutWorkspaceInput
-    members?: TeamMemberCreateNestedManyWithoutWorkspaceInput
-    clients?: ClientCreateNestedManyWithoutWorkspaceInput
-    pipelines?: PipelineCreateNestedManyWithoutWorkspaceInput
-    projects?: ProjectCreateNestedManyWithoutWorkspaceInput
-    transactions?: TransactionCreateNestedManyWithoutWorkspaceInput
-    services?: ServiceCreateNestedManyWithoutWorkspaceInput
-    products?: ProductCreateNestedManyWithoutWorkspaceInput
-    plans?: PlanCreateNestedManyWithoutWorkspaceInput
-    quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
-    briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
-    portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
-    webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
-  }
-
-  export type WorkspaceUncheckedCreateWithoutWhatsappsInput = {
-    id?: string
-    name: string
-    slug: string
-    logo?: string | null
-    primaryColor?: string | null
-    theme?: string
-    currency?: string
-    revenueGoal?: number
-    ownerId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    members?: TeamMemberUncheckedCreateNestedManyWithoutWorkspaceInput
-    clients?: ClientUncheckedCreateNestedManyWithoutWorkspaceInput
-    pipelines?: PipelineUncheckedCreateNestedManyWithoutWorkspaceInput
-    projects?: ProjectUncheckedCreateNestedManyWithoutWorkspaceInput
-    transactions?: TransactionUncheckedCreateNestedManyWithoutWorkspaceInput
-    services?: ServiceUncheckedCreateNestedManyWithoutWorkspaceInput
-    products?: ProductUncheckedCreateNestedManyWithoutWorkspaceInput
-    plans?: PlanUncheckedCreateNestedManyWithoutWorkspaceInput
-    quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
-    briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
-    portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
-    webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
-  }
-
-  export type WorkspaceCreateOrConnectWithoutWhatsappsInput = {
-    where: WorkspaceWhereUniqueInput
-    create: XOR<WorkspaceCreateWithoutWhatsappsInput, WorkspaceUncheckedCreateWithoutWhatsappsInput>
-  }
-
-  export type WorkspaceUpsertWithoutWhatsappsInput = {
-    update: XOR<WorkspaceUpdateWithoutWhatsappsInput, WorkspaceUncheckedUpdateWithoutWhatsappsInput>
-    create: XOR<WorkspaceCreateWithoutWhatsappsInput, WorkspaceUncheckedCreateWithoutWhatsappsInput>
-    where?: WorkspaceWhereInput
-  }
-
-  export type WorkspaceUpdateToOneWithWhereWithoutWhatsappsInput = {
-    where?: WorkspaceWhereInput
-    data: XOR<WorkspaceUpdateWithoutWhatsappsInput, WorkspaceUncheckedUpdateWithoutWhatsappsInput>
-  }
-
-  export type WorkspaceUpdateWithoutWhatsappsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    logo?: NullableStringFieldUpdateOperationsInput | string | null
-    primaryColor?: NullableStringFieldUpdateOperationsInput | string | null
-    theme?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    revenueGoal?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutWorkspaceNestedInput
-    members?: TeamMemberUpdateManyWithoutWorkspaceNestedInput
-    clients?: ClientUpdateManyWithoutWorkspaceNestedInput
-    pipelines?: PipelineUpdateManyWithoutWorkspaceNestedInput
-    projects?: ProjectUpdateManyWithoutWorkspaceNestedInput
-    transactions?: TransactionUpdateManyWithoutWorkspaceNestedInput
-    services?: ServiceUpdateManyWithoutWorkspaceNestedInput
-    products?: ProductUpdateManyWithoutWorkspaceNestedInput
-    plans?: PlanUpdateManyWithoutWorkspaceNestedInput
-    quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
-    briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
-    portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
-    webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
-  }
-
-  export type WorkspaceUncheckedUpdateWithoutWhatsappsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    logo?: NullableStringFieldUpdateOperationsInput | string | null
-    primaryColor?: NullableStringFieldUpdateOperationsInput | string | null
-    theme?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    revenueGoal?: FloatFieldUpdateOperationsInput | number
-    ownerId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    members?: TeamMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
-    clients?: ClientUncheckedUpdateManyWithoutWorkspaceNestedInput
-    pipelines?: PipelineUncheckedUpdateManyWithoutWorkspaceNestedInput
-    projects?: ProjectUncheckedUpdateManyWithoutWorkspaceNestedInput
-    transactions?: TransactionUncheckedUpdateManyWithoutWorkspaceNestedInput
-    services?: ServiceUncheckedUpdateManyWithoutWorkspaceNestedInput
-    products?: ProductUncheckedUpdateManyWithoutWorkspaceNestedInput
-    plans?: PlanUncheckedUpdateManyWithoutWorkspaceNestedInput
-    quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
-    briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
-    portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
-    webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
-  }
-
   export type WorkspaceCreateWithoutIntegrationsInput = {
     id?: string
     name: string
@@ -49593,7 +47625,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookCreateNestedManyWithoutWorkspaceInput
   }
 
@@ -49620,7 +47651,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     webhooks?: WebhookUncheckedCreateNestedManyWithoutWorkspaceInput
   }
 
@@ -49663,7 +47693,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUpdateManyWithoutWorkspaceNestedInput
   }
 
@@ -49690,7 +47719,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     webhooks?: WebhookUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
 
@@ -49717,7 +47745,6 @@ export namespace Prisma {
     quotes?: QuoteCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationCreateNestedManyWithoutWorkspaceInput
   }
 
@@ -49744,7 +47771,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedCreateNestedManyWithoutWorkspaceInput
     briefings?: BriefingUncheckedCreateNestedManyWithoutWorkspaceInput
     portfolio?: PortfolioUncheckedCreateNestedOneWithoutWorkspaceInput
-    whatsapps?: WhatsAppConnectionUncheckedCreateNestedManyWithoutWorkspaceInput
     integrations?: IntegrationUncheckedCreateNestedManyWithoutWorkspaceInput
   }
 
@@ -49787,7 +47813,6 @@ export namespace Prisma {
     quotes?: QuoteUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUpdateManyWithoutWorkspaceNestedInput
   }
 
@@ -49814,7 +47839,6 @@ export namespace Prisma {
     quotes?: QuoteUncheckedUpdateManyWithoutWorkspaceNestedInput
     briefings?: BriefingUncheckedUpdateManyWithoutWorkspaceNestedInput
     portfolio?: PortfolioUncheckedUpdateOneWithoutWorkspaceNestedInput
-    whatsapps?: WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceNestedInput
     integrations?: IntegrationUncheckedUpdateManyWithoutWorkspaceNestedInput
   }
 
@@ -50032,20 +48056,6 @@ export namespace Prisma {
     questions: JsonNullValueInput | InputJsonValue
     answers?: NullableJsonNullValueInput | InputJsonValue
     answeredAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type WhatsAppConnectionCreateManyWorkspaceInput = {
-    id?: string
-    phoneNumber?: string | null
-    name?: string | null
-    status?: $Enums.WhatsAppStatus
-    qrCode?: string | null
-    authData?: Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: string | null
-    lastSync?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -50501,48 +48511,6 @@ export namespace Prisma {
     questions?: JsonNullValueInput | InputJsonValue
     answers?: NullableJsonNullValueInput | InputJsonValue
     answeredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type WhatsAppConnectionUpdateWithoutWorkspaceInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type WhatsAppConnectionUncheckedUpdateWithoutWorkspaceInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type WhatsAppConnectionUncheckedUpdateManyWithoutWorkspaceInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumWhatsAppStatusFieldUpdateOperationsInput | $Enums.WhatsAppStatus
-    qrCode?: NullableStringFieldUpdateOperationsInput | string | null
-    authData?: NullableBytesFieldUpdateOperationsInput | Bytes | null
-    sessionData?: NullableJsonNullValueInput | InputJsonValue
-    lastError?: NullableStringFieldUpdateOperationsInput | string | null
-    lastSync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

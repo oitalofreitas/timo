@@ -101,7 +101,6 @@ model Workspace {
   quotes       Quote[]
   briefings    Briefing[]
   portfolio    Portfolio?
-  whatsapps    WhatsAppConnection[]
   integrations Integration[]
   webhooks     Webhook[]
 
@@ -519,34 +518,6 @@ model Testimonial {
   portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
 
   @@map("testimonials")
-}
-
-// ─── WhatsApp ─────────────────────────────────────────────────────────────────
-
-model WhatsAppConnection {
-  id          String         @id @default(cuid())
-  workspaceId String
-  phoneNumber String?
-  name        String?
-  status      WhatsAppStatus @default(DISCONNECTED)
-  qrCode      String?
-  authData    Bytes?
-  sessionData Json?
-  lastError   String?
-  lastSync    DateTime?
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-
-  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
-
-  @@map("whatsapp_connections")
-}
-
-enum WhatsAppStatus {
-  DISCONNECTED
-  CONNECTING
-  CONNECTED
-  ERROR
 }
 
 // ─── Integrations & Webhooks ──────────────────────────────────────────────────
