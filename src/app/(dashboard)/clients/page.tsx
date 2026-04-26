@@ -143,7 +143,7 @@ export default function ClientsPage() {
         </div>
       </div>
 
-      {/* Client Grid */}
+            {/* Client Grid */}
       {view === "grid" ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((client) => (
@@ -189,43 +189,68 @@ export default function ClientsPage() {
         </div>
       ) : (
         <div className="rounded-md border border-border overflow-hidden">
-          {filtered.map((client, i) => (
-            <div
-              key={client.id}
-              className={`flex items-center gap-4 px-4 py-3 hover:bg-muted/40 transition-colors ${i !== 0 ? "border-t border-border" : ""}`}
-            >
-              <Avatar className="h-8 w-8">
-                <AvatarFallback className="bg-primary/20 text-primary text-xs font-semibold">
-                  {initials(client.name)}
-                </AvatarFallback>
-              </Avatar>
-              <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm">{client.name}</p>
-                <p className="text-xs text-muted-foreground">{client.email}</p>
-              </div>
-              <p className="text-sm text-muted-foreground hidden sm:block">{client.company}</p>
-              <div className="flex gap-1 hidden md:flex">
-                {client.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="text-[10px]">{tag}</Badge>
-                ))}
-              </div>
-              <p className="text-sm font-medium text-green-500">
-                {formatCurrency(client.estimatedValue ?? 0)}
-              </p>
-              <DropdownMenu>
-                <DropdownMenuTrigger render={<Button variant="ghost" size="icon" className="h-7 w-7" />}>
+          <div className="bg-muted/50 px-4 py-3 grid grid-cols-12 gap-4 font-medium text-sm text-muted-foreground border-b border-border sticky top-0">
+            <div className="col-span-4">Cliente</div>
+            <div className="col-span-3">Empresa</div>
+            <div className="col-span-2">Tags</div>
+            <div className="col-span-2 text-right">Valor</div>
+            <div className="col-span-1"></div>
+          </div>
+          {filtered.length === 0 ? (
+            <div className="px-4 py-8 text-center text-muted-foreground">
+              Nenhum cliente encontrado
+            </div>
+          ) : (
+            filtered.map((client) => (
+              <div
+                key={client.id}
+                className="grid grid-cols-12 gap-4 px-4 py-3 items-center hover:bg-muted/40 transition-colors border-b border-border last:border-b-0"
+              >
+                <div className="col-span-4 flex items-center gap-3 min-w-0">
+                  <Avatar className="h-8 w-8 flex-shrink-0">
+                    <AvatarFallback className="bg-primary/20 text-primary text-xs font-semibold">
+                      {initials(client.name)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="min-w-0">
+                    <p className="font-medium text-sm truncate">{client.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{client.email}</p>
+                  </div>
+                </div>
+                <div className="col-span-3">
+                  <p className="text-sm text-muted-foreground truncate">{client.company}</p>
+                </div>
+                <div className="col-span-2 flex gap-1 flex-wrap">
+                  {client.tags.slice(0, 2).map((tag) => (
+                    <Badge key={tag} variant="secondary" className="text-[10px]">{tag}</Badge>
+                  ))}
+                  {client.tags.length > 2 && (
+                    <Badge variant="secondary" className="text-[10px]">+{client.tags.length - 2}</Badge>
+                  )}
+                </div>
+                <div className="col-span-2 text-right">
+                  <p className="text-sm font-medium text-green-500">
+                    {formatCurrency(client.estimatedValue ?? 0)}
+                  </p>
+                </div>
+                <div className="col-span-1 flex justify-end">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger render={<Button variant="ghost" size="icon" className="h-7 w-7" />}>
                       <MoreHorizontal className="h-4 w-4" />
                     </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem>Ver perfil</DropdownMenuItem>
-                  <DropdownMenuItem>Editar</DropdownMenuItem>
-                  <DropdownMenuItem className="text-destructive">Excluir</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          ))}
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem>Ver perfil</DropdownMenuItem>
+                      <DropdownMenuItem>Editar</DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">Excluir</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       )}
+
 
       {/* New Client Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
